@@ -16,7 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className="bg-stone-900 min-h-screen">{children}</div>
+      </body>
     </html>
   );
 }

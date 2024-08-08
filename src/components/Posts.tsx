@@ -65,25 +65,44 @@ const blogPosts: BlogPost[] = [
   },
 ];
 
+//AI MADE THIS HAHA! #GPTFOUNDER
+function formatDateDiff(date: Date): string {
+  const now = new Date();
+  const diffInMs = now.getTime() - date.getTime();
+
+  const diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+
+  if (diffInDays === 0) {
+    return "Today";
+  } else if (diffInDays <= 1) {
+    return "1 day ago";
+  } else if (diffInDays <= 30) {
+    return `${diffInDays} days ago`;
+  } else {
+    const diffInMonths = Math.floor(diffInDays / 30);
+    return `${diffInMonths} months ago`;
+  }
+}
+
 const Posts = () => {
   return (
     <>
       {blogPosts.map((post) => {
         return (
           <div className="container border-b-2 p-4 border-b-stone-800 flex flex-col gap-2">
-            <h2 className="font-semibold text-yellow-600">{post.title}</h2>
+            <h2 className="font-semibold text-yellow-600 hover:underline">{post.title}</h2>
             <p className="text-sm font-light">{post.content}</p>
             <div className="flex flex-col justify-between md:flex-row gap-2">
               <div className="flex flex-row gap-2">
                 {post.tags.map((tag) => {
                   return (
-                    <span className="bg-transparent p-2 text-xs border rounded border-stone-700">
+                    <span className="bg-transparent p-2 text-xs border rounded border-stone-600">
                       {tag.name}
                     </span>
                   );
                 })}
               </div>
-              <p>{new Date(post.date).toLocaleDateString()}</p>
+              <p className="text-sm">{formatDateDiff(new Date(post.date))}</p>
             </div>
           </div>
         );

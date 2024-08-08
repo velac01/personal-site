@@ -36,12 +36,7 @@ const videos: Video[] = [
     name: "Joe Rogan Experience #1080 - David Goggins",
     url: "https://www.youtube.com/watch?v=5tSTk1083VY&ab_channel=PowerfulJRE",
     author: "Joe Rogan",
-  },
-  {
-    name: "React JS Crash Course (2019)",
-    url: "https://www.youtube.com/watch?v=sBws8MSXN7A&ab_channel=TraversyMedia",
-    author: "Traversy Media",
-  },
+  }
 ];
 
 const VideoList = () => {
